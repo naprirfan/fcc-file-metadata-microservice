@@ -1,8 +1,13 @@
 //setup variables & modules
+var AWS_ACCESS_KEY = process.env.AWS_ACCESS_KEY;
+var AWS_SECRET_KEY = process.env.AWS_SECRET_KEY;
+var S3_BUCKET = process.env.S3_BUCKET;
+
 var express = require("express");
 var app = express();
+var aws = require('aws-sdk');
 var multer = require("multer");
-var upload = multer({ dest: './uploads' })
+var upload = multer({ dest: './tmp' });
 app.use('/public', express.static(__dirname + '/public'));
 
 //define view engine
